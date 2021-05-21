@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<script type="text/javascript">
+    class Parent {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+
+    class Son extends Parent {
+        constructor(name, age) {
+            super(name, age);
+            this.name = name;
+            this.age = age;
+        }
+        
+        say() {
+            console.log(`my name is ${this.name}, age: ${this.age}`);
+        }
+    }
+
+    var son = new Son('yc', 18);
+    console.log(son);
+    son.say();
+
+    var say = son.say;
+    say.call(son); //改变当前执行的this
+    say.apply(son); //改变当前执行的this
+
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直水平居中布局</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 20px;
+        }
+        .parent {
+            margin-bottom: 20px;
+            height: 300px;
+            width: 500px;
+            border: 1px solid red;
+        }
+        .child{
+            height: 100px;
+            width: 100px;
+            border: 1px solid green;
+        }
+
+        /**
+          第一种 同宽高+padding
+         */
+        .first {
+            height: 100px;
+            width: 100px;
+            padding: 100px 200px;
+        }
+
+        .first .child {
+            text-align: center;
+        }
+
+        /**
+           第二种：absolute + margin:auto
+         */
+        .second {
+            position: relative;
+        }
+        .second .child {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /**
+            第三种：absolute + 负margin（或transform）
+         */
+        .third {
+            position: relative;
+        }
+        .third .child {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+
+        /**
+           第四种：inline-block+table-cell
+         */
+        .fourth {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .fourth .child {
+            display: inline-block;
+        }
+
+
+        /**
+           第五种：flex
+         */
+        .fifth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="parent first">
+        <div class="child">这里是要居中的元素:同宽高+padding</div>
+    </div>
+    <div class="parent second">
+        <div class="child">这里是要居中的元素:absolute + margin:auto</div>
+    </div>
+    <div class="parent third">
+        <div class="child">这里是要居中的元素:absolute + 负margin（或transform）</div>
+    </div>
+    <div class="parent fourth">
+        <div class="child">这里是要居中的元素:inline-block+table-cell</div>
+    </div>
+    <div class="parent fifth">
+        <div class="child">这里是要居中的元素:flex</div>
+    </div>
+</div>
+</body>
+</html>
